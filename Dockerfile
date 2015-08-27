@@ -1,4 +1,4 @@
-FROM ruby:2.1.0
+FROM ruby:2.1
 
 RUN apt-get update && apt-get install -y build-essential g++
 
