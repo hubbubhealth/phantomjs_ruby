@@ -19,3 +19,5 @@ RUN mv /tmp/phantomjs-1.9.6-linux-x86_64/ /srv/var/phantomjs
 RUN ln -s /srv/var/phantomjs/bin/phantomjs /usr/bin/phantomjs
 
 RUN apt-get autoremove -y && apt-get clean all
+
+RUN gem install bundler && gem install foreman
