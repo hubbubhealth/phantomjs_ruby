@@ -1,6 +1,6 @@
 FROM ruby:2.0.0-p645
 
-RUN apt-get update && apt-get install -y build-essential g++
+RUN apt-get update -yqq && apt-get install -y build-essential g++
 
 # Install postgres nokogiri and sprokets dependencies
 RUN apt-get install -y libpq-dev \
@@ -19,8 +19,7 @@ ENV phantomJSDependencies\
 # Installing phantomjs
 RUN \
         # Installing dependencies
-        apt-get update -yqq \
-    &&  apt-get install -fyqq ${buildDependencies} ${phantomJSDependencies}\
+        apt-get install -fyqq ${buildDependencies} ${phantomJSDependencies}\
         # Downloading src, unzipping & removing zip
     &&  mkdir phantomjs \
     &&  cd phantomjs \
@@ -43,5 +42,3 @@ RUN \
     &&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
         # Checking if phantom works
     &&  phantomjs -v
-
-RUN gem install bundler && gem install foreman

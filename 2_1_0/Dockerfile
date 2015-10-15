@@ -55,5 +55,3 @@ RUN apt-get autoremove -y && apt-get clean all
 #     &&  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 #         # Checking if phantom works
 #     &&  phantomjs -v
-
-# RUN gem install bundler && gem install foreman
